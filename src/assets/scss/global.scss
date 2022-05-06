@@ -33,9 +33,25 @@ body {
   font-size: 16px;
   word-wrap: break-word;
 
+  background-color: var(--white);
+  color: var(--dark-blue);
+
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-nunito);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+}
+
+ul, ol {
+  list-style: none;
 }

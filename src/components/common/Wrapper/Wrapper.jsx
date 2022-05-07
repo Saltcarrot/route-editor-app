@@ -1,7 +1,7 @@
-import styles from './Wrapper.module.scss'
+import ContentWrapper from './Wrapper.style'
 
 const Wrapper = ({ children }) => {
-  return <div className={styles.wrapper}>{children}</div>
+  return <ContentWrapper>{children}</ContentWrapper>
 }
 
 export default Wrapper

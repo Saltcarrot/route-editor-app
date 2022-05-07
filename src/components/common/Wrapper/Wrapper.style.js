@@ -1,4 +1,6 @@
-.wrapper {
+import styled from 'styled-components'
+
+const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,4 +41,6 @@
   @media (min-width: 1400px) {
     max-width: 1320px;
   }
-}
+`
+
+export default ContentWrapper

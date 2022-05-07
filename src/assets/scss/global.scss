@@ -55,3 +55,13 @@ h1, h2, h3, h4, h5, h6 {
 ul, ol {
   list-style: none;
 }
+
+button {
+  min-height: 30px;
+  min-width: 30px;
+
+  border-radius: 5px;
+  border: 1px solid transparent;
+
+  background-color: transparent;
+}

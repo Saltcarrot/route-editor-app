@@ -1,38 +1,45 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 
-const Sidebar = ({ points, setPoints }) => {
+import { actions } from '../../../redux/actions/routePointsActions'
+
+import RoutePoint from '../RoutePoint/RoutePoint'
+
+import SidebarWrapper from './Sidebar.style'
+
+const Sidebar = () => {
+  const routePoints = useSelector((state) => state.routePoints)
+  const dispatch = useDispatch()
+
   const onDragEndHandler = (result) => {
     if (!result.destination) return
+    dispatch(actions.swapPoints(result.source.index, result.destination.index))
+  }
 
-    console.log(result)
-
-    const newPoints = Array.from(points)
-    const [sourcePoint] = newPoints.splice(result.source.index, 1)
-    newPoints.splice(result.destination.index, 0, sourcePoint)
-    setPoints(newPoints)
+  const onDeleteHandler = (pointID) => {
+    console.log(pointID)
+    dispatch(actions.remove(pointID))
   }
 
   return (
     <DragDropContext onDragEnd={onDragEndHandler}>
-      <aside className='sidebar'>
+      <SidebarWrapper>
         <Droppable droppableId='points-list'>
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {points.map((point, index) => {
+              {routePoints.map((point, index) => {
                 return (
                   <Draggable
                     key={point.id}
                     draggableId={point.id}
                     index={index}
                   >
-                    {(provided) => (
-                      <li
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        {point.title}
-                      </li>
+                    {(provided, snapshot) => (
+                      <RoutePoint
+                        dnd={{ provided, snapshot }}
+                        point={point}
+                        deletePoint={() => onDeleteHandler(point.id)}
+                      />
                     )}
                   </Draggable>
                 )
@@ -41,7 +48,7 @@ const Sidebar = ({ points, setPoints }) => {
             </ul>
           )}
         </Droppable>
-      </aside>
+      </SidebarWrapper>
     </DragDropContext>
   )
 }

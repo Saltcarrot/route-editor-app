@@ -4,8 +4,8 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 
 import { actions } from '../../../redux/actions/routePointsActions'
 
-import Input from '../Input/Input'
-import RoutePoint from '../RoutePoint/RoutePoint'
+import UI from '../UI'
+import Common from '../index'
 
 import SidebarWrapper from './Sidebar.style'
 
@@ -21,7 +21,6 @@ const Sidebar = () => {
   }
 
   const onBtnClickHandler = (pointID) => {
-    console.log(pointID)
     dispatch(actions.remove(pointID))
   }
 
@@ -35,7 +34,7 @@ const Sidebar = () => {
   return (
     <DragDropContext onDragEnd={onDragEndHandler}>
       <SidebarWrapper>
-        <Input
+        <UI.Input
           value={title}
           setValue={setTitle}
           onKeyDown={onKeyDownInputHandler}
@@ -51,7 +50,7 @@ const Sidebar = () => {
                     index={index}
                   >
                     {(provided, snapshot) => (
-                      <RoutePoint
+                      <Common.RoutePoint
                         dnd={{ provided, snapshot }}
                         point={point}
                         deletePoint={() => onBtnClickHandler(point.id)}

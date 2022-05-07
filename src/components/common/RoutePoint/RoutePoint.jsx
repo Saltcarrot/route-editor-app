@@ -1,6 +1,5 @@
-import Button from '../Button/Button'
-
 import RoutePointWrapper from './RoutePoint.style'
+import UI from '../UI'
 
 const RoutePoint = ({ dnd: { provided, snapshot }, point, deletePoint }) => {
   return (
@@ -11,7 +10,7 @@ const RoutePoint = ({ dnd: { provided, snapshot }, point, deletePoint }) => {
       isDragging={snapshot.isDragging}
     >
       <p>{point.title}</p>
-      <Button onClick={deletePoint} />
+      <UI.Button onClick={deletePoint} />
     </RoutePointWrapper>
   )
 }

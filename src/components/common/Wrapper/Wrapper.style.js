@@ -3,12 +3,17 @@ import styled from 'styled-components'
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 
+  height: 100%;
   width: 100%;
 
   padding: 10px;
   margin: 0 auto;
+
+  border-radius: 10px;
+
+  background-color: #fff;
 
   > * {
     width: 50%;

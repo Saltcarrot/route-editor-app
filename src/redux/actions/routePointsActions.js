@@ -3,6 +3,7 @@ export const actionTypes = {
   REMOVE_POINT: 'REMOVE_ROUTE_POINT',
   SWAP_POINTS: 'SWAP_ROUTE_POINTS',
   UPDATE_COORDINATES: 'UPDATE_ROUTE_COORDINATES',
+  UPDATE_ADDRESS: 'UPDATE_ADDRESS',
 }
 
 export const actions = {
@@ -12,6 +13,8 @@ export const actions = {
     swapRoutePointsAction(sourceIDX, destinationIDX),
   updateCoordinates: (pointID, newCoordinates) =>
     updateRoutePointCoordinatesAction(pointID, newCoordinates),
+  updateAddress: (pointID, newAddress) =>
+    updateRoutePointAddressAction(pointID, newAddress),
 }
 
 export const addRoutePointAction = (title) => ({
@@ -32,4 +35,9 @@ export const swapRoutePointsAction = (sourceIDX, destinationIDX) => ({
 export const updateRoutePointCoordinatesAction = (pointID, newCoordinates) => ({
   type: actionTypes.UPDATE_COORDINATES,
   payload: { pointID, newCoordinates },
+})
+
+export const updateRoutePointAddressAction = (pointID, newAddress) => ({
+  type: actionTypes.UPDATE_ADDRESS,
+  payload: { pointID, newAddress },
 })

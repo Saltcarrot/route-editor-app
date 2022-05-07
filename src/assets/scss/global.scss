@@ -56,12 +56,18 @@ ul, ol {
   list-style: none;
 }
 
-button {
-  min-height: 30px;
-  min-width: 30px;
+button, input {
+  height: 30px;
 
-  border-radius: 5px;
+  font-size: inherit;
+
   border: 1px solid transparent;
 
   background-color: transparent;
+}
+
+input {
+  width: 100%;
+
+  border-radius: 10px;
 }

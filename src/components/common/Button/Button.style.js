@@ -5,6 +5,8 @@ const ButtonWrapper = styled.button`
   align-items: center;
   justify-content: center;
 
+  width: 30px;
+
   font-size: 18px;
 
   color: var(--red);

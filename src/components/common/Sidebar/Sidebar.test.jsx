@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
+import { makeDnd } from 'react-beautiful-dnd-test-utils'
 
 import { store } from '../../../redux'
 import { initialPoints } from '../../../redux/reducers/routePointsReducer'
 
 import Sidebar from './Sidebar'
-import { makeDnd } from 'react-beautiful-dnd-test-utils'
 
 const SidebarWrapper = () => {
   return (

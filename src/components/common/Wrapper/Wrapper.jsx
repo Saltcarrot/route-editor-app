@@ -1,7 +1,7 @@
 import ContentWrapper from './Wrapper.style'
 
 const Wrapper = ({ children }) => {
-  return <ContentWrapper>{children}</ContentWrapper>
+  return <ContentWrapper data-testid='wrapper'>{children}</ContentWrapper>
 }
 
 export default Wrapper

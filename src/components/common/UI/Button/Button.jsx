@@ -5,7 +5,11 @@ import ButtonWrapper from './Button.style'
 
 const Button = ({ onClick }) => {
   return (
-    <ButtonWrapper type='button' onClick={onClick}>
+    <ButtonWrapper
+      data-testid='delete-point-btn'
+      type='button'
+      onClick={onClick}
+    >
       <FontAwesomeIcon icon={faTrash} />
     </ButtonWrapper>
   )

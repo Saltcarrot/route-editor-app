@@ -60,5 +60,7 @@ describe('Sidebar component tests', () => {
 
     const firstChildTitle = screen.getAllByTestId('route-point-title')[0]
     expect(firstChildTitle.innerHTML).toEqual(initialPoints[2].title)
+    const lastChild = screen.getAllByTestId('route-point-title')[0]
+    expect(lastChild.innerHTML).toEqual(initialPoints[1].title)
   })
 })

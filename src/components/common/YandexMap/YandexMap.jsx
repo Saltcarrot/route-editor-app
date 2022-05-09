@@ -31,7 +31,7 @@ const YandexMap = () => {
   }
 
   return (
-    <YandexMapWrapper>
+    <YandexMapWrapper data-testid='yandex-map'>
       <YMaps query={{ apikey: process.env.REACT_APP_YAPI_KEY }}>
         <Map
           height='100%'

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 import { actions } from '../../../redux/actions/routePointsActions'
 
@@ -44,19 +44,11 @@ const Sidebar = () => {
             <ul {...provided.droppableProps} ref={provided.innerRef}>
               {routePoints.map((point, index) => {
                 return (
-                  <Draggable
-                    key={point.id}
-                    draggableId={point.id}
+                  <Common.RoutePoint
+                    point={point}
                     index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <Common.RoutePoint
-                        dnd={{ provided, snapshot }}
-                        point={point}
-                        deletePoint={() => onBtnClickHandler(point.id)}
-                      />
-                    )}
-                  </Draggable>
+                    deletePoint={() => onBtnClickHandler(point.id)}
+                  />
                 )
               })}
               {provided.placeholder}

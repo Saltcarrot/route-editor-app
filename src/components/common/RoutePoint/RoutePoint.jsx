@@ -1,17 +1,25 @@
-import RoutePointWrapper from './RoutePoint.style'
+import { Draggable } from 'react-beautiful-dnd'
+
 import UI from '../UI'
 
-const RoutePoint = ({ dnd: { provided, snapshot }, point, deletePoint }) => {
+import RoutePointWrapper from './RoutePoint.style'
+
+const RoutePoint = ({ index, point, deletePoint }) => {
   return (
-    <RoutePointWrapper
-      ref={provided.innerRef}
-      {...provided.draggableProps}
-      {...provided.dragHandleProps}
-      isDragging={snapshot.isDragging}
-    >
-      <p>{point.title}</p>
-      <UI.Button onClick={deletePoint} />
-    </RoutePointWrapper>
+    <Draggable key={point.id} draggableId={point.id} index={index}>
+      {(provided, snapshot) => (
+        <RoutePointWrapper
+          data-testid='route-point'
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          isDragging={snapshot.isDragging}
+        >
+          <p data-testid='route-point-title'>{point.title}</p>
+          <UI.Button onClick={deletePoint} />
+        </RoutePointWrapper>
+      )}
+    </Draggable>
   )
 }
 

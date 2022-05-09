@@ -1,6 +1,6 @@
 import { actionTypes } from '../actions/routePointsActions'
 
-const initialPoints = [
+export const initialPoints = [
   {
     title: 'Route 111',
     id: Math.random().toString(36).slice(-6),

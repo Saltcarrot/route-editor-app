@@ -6,7 +6,7 @@ import RoutePointWrapper from './RoutePoint.style'
 
 const RoutePoint = ({ index, point, deletePoint }) => {
   return (
-    <Draggable key={point.id} draggableId={point.id} index={index}>
+    <Draggable draggableId={point.id} index={index}>
       {(provided, snapshot) => (
         <RoutePointWrapper
           data-testid='route-point'

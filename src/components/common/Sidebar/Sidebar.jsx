@@ -33,7 +33,7 @@ const Sidebar = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEndHandler}>
-      <SidebarWrapper>
+      <SidebarWrapper data-testid='sidebar'>
         <UI.Input
           value={title}
           setValue={setTitle}
@@ -41,10 +41,15 @@ const Sidebar = () => {
         />
         <Droppable droppableId='points-list'>
           {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
+            <ul
+              data-testid='points-list'
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
               {routePoints.map((point, index) => {
                 return (
                   <Common.RoutePoint
+                    key={point.id}
                     point={point}
                     index={index}
                     deletePoint={() => onBtnClickHandler(point.id)}
